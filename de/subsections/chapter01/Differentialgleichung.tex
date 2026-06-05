@@ -1,0 +1,313 @@
+\subsection{Differentialgleichung einer RC-Reihenschaltung}
+\label{subsec:differentialgleichung-rc-schaltung}
+
+Wir betrachten eine RC-Reihenschaltung mit einer konstanten Eingangsspannung
+$U_0$, einem Widerstand $R$ und einem Kondensator $C$.
+Die Spannung am Widerstand wird mit $U_R(t)$ bezeichnet, die Spannung am
+Kondensator mit $U_C(t)$. Da Widerstand und Kondensator in Reihe geschaltet
+sind, fließt durch beide Bauelemente derselbe Strom $i(t)$.
+\FloatBarrier
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.92\textwidth]{bilder/rc-schaltung.png}
+	\caption{RC-Reihenschaltung mit Eingangsspannung $U_0$, Widerstandsspannung $U_R(t)$, Kondensatorspannung $U_C(t)$ und Strom $i(t)$.}
+	\label{fig:rc-schaltung}
+\end{figure}
+
+Nach der Maschenregel gilt:
+
+\[
+U_0 = U_R(t) + U_C(t)
+\]
+
+Für den Widerstand gilt nach dem Ohmschen Gesetz:
+
+\[
+U_R(t) = R\,i(t)
+\]
+
+Für den Kondensator gilt:
+
+\[
+i(t) = C\,\frac{dU_C(t)}{dt}
+\]
+
+Setzt man diesen Ausdruck für den Strom in die Gleichung des Widerstands ein,
+so erhält man:
+
+\[
+U_R(t) = R C\,\frac{dU_C(t)}{dt}
+\]
+
+Einsetzen in die Maschengleichung liefert:
+
+\[
+U_0 = R C\,\frac{dU_C(t)}{dt} + U_C(t)
+\]
+
+Damit lautet die Differentialgleichung der RC-Reihenschaltung:
+
+\[
+R C\,\frac{dU_C(t)}{dt} + U_C(t) = U_0
+\]
+
+Da das Produkt aus Widerstand und Kapazität die Zeitkonstante der Schaltung ist,
+
+\[
+\tau = R C,
+\]
+
+kann man die Gleichung auch schreiben als:
+
+\[
+\tau\,\frac{dU_C(t)}{dt} + U_C(t) = U_0
+\]
+
+oder in normierter Form:
+
+\[
+\frac{dU_C(t)}{dt} + \frac{1}{\tau}U_C(t)
+=
+\frac{U_0}{\tau}
+\]
+
+Es handelt sich also um eine lineare Differentialgleichung erster Ordnung
+mit konstanter rechter Seite.
+
+\subsubsection{Allgemeine Lösung}
+\label{subsubsec:allgemeine-loesung-rc-schaltung}
+
+Die allgemeine Lösung dieser Differentialgleichung besitzt die Form
+
+\[
+U_C(t) = K_1 + K_2 e^{-\frac{t-t_0}{R C}}
+\]
+
+oder mit der Zeitkonstanten $\tau = RC$:
+
+\[
+U_C(t) = K_1 + K_2 e^{-\frac{t-t_0}{\tau}}
+\]
+
+Da $U_0$ konstant ist, ist die stationäre Lösung
+
+\[
+K_1 = U_0.
+\]
+
+Damit ergibt sich:
+
+\[
+U_C(t) = U_0 + K_2 e^{-\frac{t-t_0}{R C}}
+\]
+
+bzw.
+
+\[
+U_C(t) = U_0 + K_2 e^{-\frac{t-t_0}{\tau}}.
+\]
+
+Die Konstante $K_2$ wird durch die Anfangsbedingung bestimmt.
+
+Sei zum Zeitpunkt $t=t_0$ die Kondensatorspannung
+
+\[
+U_C(t_0)=U_{C0}.
+\]
+
+Dann folgt aus der allgemeinen Lösung:
+
+\[
+U_{C0}=U_0+K_2.
+\]
+
+Also ist
+
+\[
+K_2 = U_{C0}-U_0.
+\]
+
+Damit erhält man die Lösung für beliebige Anfangsspannung des Kondensators:
+
+\[
+\boxed{
+	U_C(t)=U_0+\left(U_{C0}-U_0\right)e^{-\frac{t-t_0}{R C}}
+}
+\]
+
+oder mit $\tau=RC$:
+
+\[
+\boxed{
+	U_C(t)=U_0+\left(U_{C0}-U_0\right)e^{-\frac{t-t_0}{\tau}}
+}
+\]
+
+\subsubsection{Spezialfall: ungeladener Kondensator}
+\label{subsubsec:ungeladener-kondensator-rc-schaltung}
+
+Ist der Kondensator zu Beginn ungeladen, so gilt:
+
+\[
+U_C(t_0)=0.
+\]
+
+Damit ist
+
+\[
+U_{C0}=0.
+\]
+
+Einsetzen in die allgemeine Lösung ergibt:
+
+\[
+U_C(t)
+=
+U_0+\left(0-U_0\right)e^{-\frac{t-t_0}{R C}}.
+\]
+
+Also folgt:
+
+\[
+\boxed{
+	U_C(t)=U_0\left(1-e^{-\frac{t-t_0}{R C}}\right)
+}
+\]
+
+oder mit der Zeitkonstanten $\tau$:
+
+\[
+\boxed{
+	U_C(t)=U_0\left(1-e^{-\frac{t-t_0}{\tau}}\right)
+}
+\]
+
+Dies ist die klassische Aufladekurve des Kondensators.
+
+\subsubsection{Spannung am Widerstand}
+\label{subsubsec:spannung-am-widerstand-rc-schaltung}
+
+Aus der Maschengleichung
+
+\[
+U_0 = U_R(t)+U_C(t)
+\]
+
+folgt unmittelbar:
+
+\[
+U_R(t)=U_0-U_C(t).
+\]
+
+Für den ungeladenen Kondensator ergibt sich daher:
+
+\[
+U_R(t)
+=
+U_0
+-
+U_0\left(1-e^{-\frac{t-t_0}{R C}}\right).
+\]
+
+Damit erhält man:
+
+\[
+\boxed{
+	U_R(t)=U_0 e^{-\frac{t-t_0}{R C}}
+}
+\]
+
+oder mit $\tau=RC$:
+
+\[
+\boxed{
+	U_R(t)=U_0 e^{-\frac{t-t_0}{\tau}}
+}
+\]
+
+Die Widerstandsspannung fällt also exponentiell ab, während die
+Kondensatorspannung exponentiell gegen $U_0$ ansteigt.
+
+\subsubsection{Bedeutung der Zeitkonstante}
+\label{subsubsec:bedeutung-zeitkonstante-rc-schaltung}
+
+Die Größe
+
+\[
+\boxed{
+	\tau = R C
+}
+\]
+
+heißt Zeitkonstante der RC-Schaltung.
+
+Nach einer Zeitspanne
+
+\[
+t-t_0=\tau
+\]
+
+hat der Kondensator die Spannung
+
+\[
+U_C(t_0+\tau)
+=
+U_0\left(1-e^{-1}\right)
+\]
+
+erreicht. Da
+
+\[
+1-e^{-1}\approx 0{,}632
+\]
+
+gilt:
+
+\[
+U_C(t_0+\tau) \approx 0{,}632\,U_0.
+\]
+
+Nach einer Zeitkonstante hat der Kondensator also etwa $63{,}2\,\%$ seiner
+Endspannung erreicht.
+
+Umgekehrt ist die Widerstandsspannung nach einer Zeitkonstante auf
+
+\[
+U_R(t_0+\tau)=U_0 e^{-1}
+\]
+
+abgefallen. Da
+
+\[
+e^{-1}\approx 0{,}368
+\]
+
+gilt:
+
+\[
+U_R(t_0+\tau)\approx 0{,}368\,U_0.
+\]
+
+Nach einer Zeitkonstante beträgt die Spannung am Widerstand also nur noch etwa
+$36{,}8\,\%$ ihres Anfangswerts.
+
+\begin{DidacticBox}[Merksatz zur RC-Schaltung]
+	\label{box:merksatz-rc-schaltung}
+	Bei einer RC-Reihenschaltung mit konstanter Eingangsspannung $U_0$ steigt die
+	Kondensatorspannung exponentiell an, während die Widerstandsspannung
+	exponentiell abfällt:
+	
+	\[
+	U_C(t)=U_0\left(1-e^{-\frac{t-t_0}{\tau}}\right),
+	\qquad
+	U_R(t)=U_0 e^{-\frac{t-t_0}{\tau}}.
+	\]
+	
+	Die Zeitkonstante
+	
+	\[
+	\tau=RC
+	\]
+	
+	bestimmt, wie schnell dieser Vorgang abläuft.
+\end{DidacticBox}

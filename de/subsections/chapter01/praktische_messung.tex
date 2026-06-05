@@ -1,0 +1,163 @@
+\subsection{Praktische Messung mit dem Oszilloskop}
+\label{subsec:rc-schaltung-oszilloskop}
+
+Die theoretisch hergeleitete Aufladekurve einer RC-Schaltung lässt sich mit
+einem Funktionsgenerator und einem Oszilloskop sehr gut experimentell
+überprüfen. Dazu wird an die RC-Reihenschaltung eine Rechteckspannung angelegt.
+Jede steigende Flanke des Rechtecksignals entspricht näherungsweise einem
+Spannungssprung von $0$ auf $U_0$.
+
+Der Kondensator lädt sich nach diesem Spannungssprung nicht schlagartig auf,
+sondern gemäß der exponentiellen Funktion
+
+\[
+U_C(t)=U_0\left(1-e^{-\frac{t-t_0}{\tau}}\right)
+\]
+
+mit der Zeitkonstante
+
+\[
+\tau=RC.
+\]
+
+Bei der fallenden Flanke des Rechtecksignals entlädt sich der Kondensator
+wieder exponentiell.
+
+\subsubsection{Geeignete Bauteilwerte}
+\label{subsubsec:geeignete-bauteilwerte-rc}
+
+Ein gut messbarer Startwert ist beispielsweise
+
+\[
+R = 10\,\text{k}\Omega,
+\qquad
+C = 100\,\text{nF}.
+\]
+
+Damit ergibt sich
+
+\[
+\tau = RC
+=
+10\,000\,\Omega \cdot 100 \cdot 10^{-9}\,\text{F}
+=
+1\,\text{ms}.
+\]
+
+Nach einer Zeitkonstante hat der Kondensator etwa $63{,}2\,\%$ seiner
+Endspannung erreicht. Nach etwa fünf Zeitkonstanten gilt der Ladevorgang
+praktisch als abgeschlossen.
+
+\[
+5\tau = 5\,\text{ms}
+\]
+
+Damit sollte die halbe Periodendauer des Rechtecksignals ungefähr
+
+\[
+\frac{T}{2} \approx 5\tau
+\]
+
+betragen. Also gilt näherungsweise:
+
+\[
+T \approx 10\tau.
+\]
+
+Für $\tau = 1\,\text{ms}$ folgt:
+
+\[
+T \approx 10\,\text{ms}
+\]
+
+und damit
+
+\[
+f=\frac{1}{T}\approx 100\,\text{Hz}.
+\]
+
+Eine sinnvolle Einstellung des Funktionsgenerators ist daher:
+
+\[
+f = 100\,\text{Hz}.
+\]
+
+\subsubsection{Messaufbau}
+\label{subsubsec:messaufbau-rc-oszilloskop}
+
+Der Funktionsgenerator liefert eine Rechteckspannung. Diese wird an die
+RC-Reihenschaltung angelegt. Das Oszilloskop misst gleichzeitig die
+Eingangsspannung und die Kondensatorspannung.
+
+\[
+\text{Generator} \rightarrow R \rightarrow C \rightarrow \text{Masse}
+\]
+
+Kanal 1 des Oszilloskops misst die Eingangsspannung $U_0(t)$.
+Kanal 2 misst die Kondensatorspannung $U_C(t)$.
+
+\[
+\begin{array}{c|c|c}
+	\text{Kanal} & \text{Messpunkt} & \text{Signal} \\
+	\hline
+	\text{CH1} & \text{Generatorausgang} & U_0(t) \\
+	\text{CH2} & \text{Kondensator} & U_C(t)
+\end{array}
+\]
+
+Auf dem Oszilloskop sollte auf Kanal 1 ein Rechtecksignal sichtbar sein.
+Auf Kanal 2 erscheint dagegen keine rechteckige Spannung, sondern eine
+exponentielle Lade- und Entladekurve.
+
+\subsubsection{Erwartetes Messergebnis}
+\label{subsubsec:erwartetes-messergebnis-rc}
+
+Bei einer Rechteckspannung von beispielsweise $0$ bis $5\,\text{V}$ steigt die
+Kondensatorspannung nach jeder positiven Flanke exponentiell gegen
+$5\,\text{V}$ an:
+
+\[
+U_C(t)=5\,\text{V}\left(1-e^{-\frac{t-t_0}{\tau}}\right).
+\]
+
+Nach einer Zeitkonstante gilt:
+
+\[
+U_C(t_0+\tau)
+\approx
+0{,}632 \cdot 5\,\text{V}
+\approx
+3{,}16\,\text{V}.
+\]
+
+Nach etwa fünf Zeitkonstanten ist der Kondensator nahezu vollständig geladen:
+
+\[
+U_C(t_0+5\tau)\approx 0{,}993\,U_0.
+\]
+
+Bei der fallenden Flanke entlädt sich der Kondensator wieder exponentiell:
+
+\[
+U_C(t)=U_{C0}e^{-\frac{t-t_0}{\tau}}.
+\]
+
+\begin{DidacticBox}[Theorie und Messung]
+	\label{box:theorie-und-messung-rc-schaltung}
+	Die RC-Schaltung zeigt unmittelbar, wie eine Differentialgleichung in der
+	Realität sichtbar wird. Die mathematische Lösung
+	
+	\[
+	U_C(t)=U_0\left(1-e^{-\frac{t-t_0}{\tau}}\right)
+	\]
+	
+	ist nicht nur eine Formel, sondern erscheint direkt als Kurve auf dem
+	Oszilloskop. Die Zeitkonstante
+	
+	\[
+	\tau=RC
+	\]
+	
+	kann aus den Bauteilwerten berechnet und anschließend im Messbild überprüft
+	werden.
+\end{DidacticBox}
