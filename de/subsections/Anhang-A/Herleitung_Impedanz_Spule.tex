@@ -1,0 +1,383 @@
+\subsection{Impedanz der Spule}
+\label{subsec:impedanz-der-spule}
+
+Neben dem Kondensator besitzt auch die Spule einen frequenzabhängigen
+Wechselstromwiderstand. Dieser wird als induktiver Blindwiderstand bezeichnet.
+Während der Kondensator Stromänderungen über seine elektrische Ladung beschreibt,
+beruht das Verhalten der Spule auf dem Aufbau und Abbau ihres Magnetfeldes.
+
+Die Grundgleichung der idealen Spule lautet
+
+\begin{equation}
+	u_L(t) = L \frac{di(t)}{dt}.
+	\label{eq:spule-grundgleichung}
+\end{equation}
+
+Dabei ist \(u_L(t)\) die Spannung an der Spule, \(i(t)\) der Strom durch die
+Spule und \(L\) die Induktivität.
+
+\begin{PhysicsBox}[Grundidee der Spule]
+	\label{box:grundidee-der-spule}
+	Eine Spule widersetzt sich Änderungen des Stroms. Ändert sich der Strom,
+	ändert sich auch das Magnetfeld der Spule. Dieses veränderliche Magnetfeld
+	erzeugt eine Gegenspannung. Deshalb reagiert die Spule besonders stark auf
+	schnelle Stromänderungen.
+\end{PhysicsBox}
+
+\subsubsection{Herleitung mit sinusförmigem Strom}
+\label{subsubsec:spule-sinusfoermiger-strom}
+
+Wir betrachten einen sinusförmigen Strom
+
+\begin{equation}
+	i(t) = \hat{I} \sin(\omega t),
+	\label{eq:spule-strom-sinus}
+\end{equation}
+
+wobei \(\hat{I}\) der Scheitelwert des Stroms und
+
+\begin{equation}
+	\omega = 2\pi f
+	\label{eq:kreisfrequenz-spule}
+\end{equation}
+
+die Kreisfrequenz ist.
+
+Die Spannung an der Spule ergibt sich aus der Ableitung des Stroms:
+
+\begin{align}
+	u_L(t)
+	&= L \frac{di(t)}{dt} \\[4pt]
+	&= L \frac{d}{dt} \left( \hat{I} \sin(\omega t) \right) \\[4pt]
+	&= L \hat{I} \omega \cos(\omega t).
+	\label{eq:spule-spannung-cosinus}
+\end{align}
+
+Damit folgt
+
+\begin{equation}
+	u_L(t) = \omega L \hat{I} \cos(\omega t).
+	\label{eq:spule-spannung-omega-l}
+\end{equation}
+
+Da gilt
+
+\begin{equation}
+	\cos(\omega t)
+	=
+	\sin\left(\omega t + \frac{\pi}{2}\right),
+	\label{eq:cosinus-als-verschobener-sinus}
+\end{equation}
+
+kann man schreiben:
+
+\begin{equation}
+	u_L(t)
+	=
+	\omega L \hat{I}
+	\sin\left(\omega t + \frac{\pi}{2}\right).
+	\label{eq:spule-spannung-phasenverschoben}
+\end{equation}
+
+Die Spannung eilt dem Strom also um \(90^\circ\) voraus.
+
+\begin{DidacticBox}[Merksatz zur Spule]
+	\label{box:merksatz-spule-strom-hinkt-nach}
+	Bei der Spule eilt die Spannung dem Strom um \(90^\circ\) voraus.
+	
+	Anders gesagt: Der Strom hinkt der Spannung um \(90^\circ\) nach.
+\end{DidacticBox}
+
+\subsubsection{Induktiver Blindwiderstand}
+\label{subsubsec:induktiver-blindwiderstand}
+
+Aus Gleichung~\eqref{eq:spule-spannung-omega-l} liest man den Scheitelwert
+der Spannung ab:
+
+\begin{equation}
+	\hat{U} = \omega L \hat{I}.
+	\label{eq:spule-scheitelwert-spannung}
+\end{equation}
+
+Daraus folgt für das Verhältnis von Spannung zu Strom:
+
+\begin{equation}
+	\frac{\hat{U}}{\hat{I}} = \omega L.
+	\label{eq:spule-verhaeltnis-u-i}
+\end{equation}
+
+Der Betrag des induktiven Blindwiderstands lautet daher
+
+\begin{equation}
+	X_L = \omega L.
+	\label{eq:induktiver-blindwiderstand}
+\end{equation}
+
+Mit \(\omega = 2\pi f\) erhält man
+
+\begin{equation}
+	X_L = 2\pi f L.
+	\label{eq:induktiver-blindwiderstand-frequenz}
+\end{equation}
+
+\begin{MathBox}[Induktiver Blindwiderstand]
+	\label{box:induktiver-blindwiderstand}
+	Der induktive Blindwiderstand einer idealen Spule ist
+	
+	\[
+	X_L = \omega L = 2\pi f L.
+	\]
+	
+	Er wächst proportional mit der Frequenz \(f\) und mit der Induktivität \(L\).
+\end{MathBox}
+
+Die Einheit ist Ohm:
+
+\begin{equation}
+	[X_L]
+	=
+	[\omega L]
+	=
+	\frac{1}{\mathrm{s}} \cdot \mathrm{H}
+	=
+	\Omega.
+	\label{eq:einheit-induktiver-blindwiderstand}
+\end{equation}
+
+\subsubsection{Komplexe Herleitung der Impedanz}
+\label{subsubsec:komplexe-herleitung-impedanz-spule}
+
+In der komplexen Wechselstromrechnung beschreibt man sinusförmige Größen mit
+dem komplexen Exponentialansatz. Für den Strom schreiben wir
+
+\begin{equation}
+	i(t) = \hat{I} e^{j\omega t}.
+	\label{eq:spule-komplexer-strom}
+\end{equation}
+
+Die Spulenspannung ergibt sich wieder aus
+
+\begin{equation}
+	u_L(t) = L \frac{di(t)}{dt}.
+	\label{eq:spule-komplexe-grundgleichung}
+\end{equation}
+
+Einsetzen liefert
+
+\begin{align}
+	u_L(t)
+	&= L \frac{d}{dt}
+	\left(
+	\hat{I} e^{j\omega t}
+	\right) \\[4pt]
+	&= L \cdot j\omega \hat{I} e^{j\omega t} \\[4pt]
+	&= j\omega L \hat{I} e^{j\omega t}.
+	\label{eq:spule-komplexe-spannung}
+\end{align}
+
+Da
+
+\begin{equation}
+	i(t) = \hat{I} e^{j\omega t}
+	\label{eq:spule-komplexer-strom-wiederholung}
+\end{equation}
+
+gilt, folgt unmittelbar:
+
+\begin{equation}
+	u_L(t) = j\omega L \, i(t).
+	\label{eq:spule-u-gleich-z-mal-i}
+\end{equation}
+
+Die Impedanz ist definiert als Verhältnis von Spannung zu Strom:
+
+\begin{equation}
+	Z_L = \frac{U}{I}.
+	\label{eq:definition-impedanz-spule}
+\end{equation}
+
+Damit erhält man für die ideale Spule
+
+\begin{equation}
+	Z_L = j\omega L.
+	\label{eq:impedanz-spule}
+\end{equation}
+
+Oder mit \(\omega = 2\pi f\):
+
+\begin{equation}
+	Z_L = j 2\pi f L.
+	\label{eq:impedanz-spule-frequenz}
+\end{equation}
+
+\begin{MathBox}[Impedanz der idealen Spule]
+	\label{box:impedanz-ideale-spule}
+	Die komplexe Impedanz einer idealen Spule lautet
+	
+	\[
+	Z_L = j\omega L.
+	\]
+	
+	Der Faktor \(j\) beschreibt die Phasenverschiebung um \(+90^\circ\).
+	Die Spannung eilt dem Strom voraus.
+\end{MathBox}
+
+\subsubsection{Betrag und Phase}
+\label{subsubsec:betrag-und-phase-spule}
+
+Die Impedanz der Spule lautet
+
+\begin{equation}
+	Z_L = j\omega L.
+	\label{eq:spule-impedanz-betrag-phase-ausgangspunkt}
+\end{equation}
+
+Der Betrag ist
+
+\begin{equation}
+	|Z_L| = \omega L.
+	\label{eq:betrag-impedanz-spule}
+\end{equation}
+
+Die Phase beträgt
+
+\begin{equation}
+	\varphi = +90^\circ.
+	\label{eq:phase-impedanz-spule}
+\end{equation}
+
+Damit kann man die Impedanz auch in Polarform schreiben:
+
+\begin{equation}
+	Z_L = \omega L \, e^{j\frac{\pi}{2}}.
+	\label{eq:spule-impedanz-polarform}
+\end{equation}
+
+\subsubsection{Vergleich mit Widerstand und Kondensator}
+\label{subsubsec:vergleich-r-l-c-impedanzen}
+
+Zum Vergleich:
+
+\begin{align}
+	Z_R &= R,
+	\label{eq:impedanz-widerstand-vergleich} \\[4pt]
+	Z_L &= j\omega L,
+	\label{eq:impedanz-spule-vergleich} \\[4pt]
+	Z_C &= \frac{1}{j\omega C}.
+	\label{eq:impedanz-kondensator-vergleich}
+\end{align}
+
+Der Widerstand besitzt keine Phasenverschiebung. Die Spule besitzt eine
+positive Phasenverschiebung von \(+90^\circ\), der Kondensator eine negative
+Phasenverschiebung von \(-90^\circ\).
+
+\begin{center}
+	\begin{tabular}{c|c|c|c}
+		Bauteil & Grundgleichung & Impedanz & Phase \\ \hline
+		Widerstand & \(u = Ri\) & \(Z_R = R\) & \(0^\circ\) \\
+		Spule & \(u_L = L\dfrac{di}{dt}\) & \(Z_L = j\omega L\) & \(+90^\circ\) \\
+		Kondensator & \(i_C = C\dfrac{du}{dt}\) & \(Z_C = \dfrac{1}{j\omega C}\) & \(-90^\circ\)
+	\end{tabular}
+\end{center}
+
+\begin{DidacticBox}[Spule und Kondensator im Vergleich]
+	\label{box:spule-kondensator-vergleich}
+	Bei der Spule wächst der Blindwiderstand mit der Frequenz:
+	
+	\[
+	X_L = \omega L.
+	\]
+	
+	Beim Kondensator sinkt der Blindwiderstand mit der Frequenz:
+	
+	\[
+	X_C = \frac{1}{\omega C}.
+	\]
+	
+	Die Spule sperrt hohe Frequenzen stärker, der Kondensator lässt hohe
+	Frequenzen leichter passieren.
+\end{DidacticBox}
+
+\subsubsection{Grenzfälle}
+\label{subsubsec:grenzfaelle-spule}
+
+Für Gleichstrom gilt
+
+\begin{equation}
+	f = 0
+	\label{eq:gleichstromfrequenz-spule}
+\end{equation}
+
+und damit
+
+\begin{equation}
+	X_L = 2\pi f L = 0.
+	\label{eq:spule-gleichstrom-blindwiderstand}
+\end{equation}
+
+Eine ideale Spule besitzt bei Gleichstrom also keinen induktiven
+Blindwiderstand. In der Realität bleibt jedoch der ohmsche Widerstand des
+Kupferdrahtes erhalten.
+
+Für sehr hohe Frequenzen wird der Blindwiderstand dagegen groß:
+
+\begin{equation}
+	X_L = 2\pi f L \rightarrow \infty
+	\quad \text{für} \quad f \rightarrow \infty.
+	\label{eq:spule-hohe-frequenzen}
+\end{equation}
+
+\begin{PhysicsBox}[Physikalische Bedeutung]
+	\label{box:physikalische-bedeutung-spulenimpedanz}
+	Eine ideale Spule lässt Gleichstrom nach dem Einschwingvorgang nahezu
+	ungehindert fließen. Wechselstrom wird dagegen umso stärker behindert, je
+	höher seine Frequenz ist. Ursache ist die Selbstinduktion der Spule.
+\end{PhysicsBox}
+
+\subsubsection{Ergebnis}
+\label{subsubsec:ergebnis-impedanz-spule}
+
+Die Impedanz der idealen Spule lautet
+
+\begin{equation}
+	\boxed{
+		Z_L = j\omega L
+	}
+	\label{eq:endformel-impedanz-spule}
+\end{equation}
+
+mit
+
+\begin{equation}
+	\omega = 2\pi f.
+	\label{eq:endformel-kreisfrequenz-spule}
+\end{equation}
+
+Damit ergibt sich
+
+\begin{equation}
+	\boxed{
+		Z_L = j2\pi f L
+	}
+	\label{eq:endformel-impedanz-spule-frequenz}
+\end{equation}
+
+und für den Betrag
+
+\begin{equation}
+	\boxed{
+		|Z_L| = X_L = 2\pi f L.
+	}
+	\label{eq:endformel-betrag-impedanz-spule}
+\end{equation}
+
+\begin{DidacticBox}[Kurzer Merksatz]
+	\label{box:kurzer-merksatz-spule}
+	Spule:
+	
+	\[
+	Z_L = j\omega L.
+	\]
+	
+	Die Spannung eilt vor, der Strom hinkt nach.
+\end{DidacticBox}

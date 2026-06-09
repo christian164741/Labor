@@ -1,0 +1,237 @@
+\subsection{Impedanz des Kondensators}
+\label{subsec:impedanz-des-kondensators}
+
+Die Impedanz eines Kondensators lässt sich direkt aus der Grundgleichung des
+Kondensators herleiten. Für den Strom durch einen Kondensator gilt:
+
+\[
+i_C(t)=C\frac{du_C(t)}{dt}.
+\]
+
+Diese Gleichung zeigt bereits den entscheidenden Zusammenhang:
+Der Strom durch den Kondensator ist proportional zur zeitlichen Änderung der
+Kondensatorspannung.
+
+Für eine sinusförmige Wechselspannung verwendet man in der Wechselstromrechnung
+eine komplexe Darstellung. Man schreibt die Kondensatorspannung als
+
+\[
+\underline{u}_C(t)=\hat U_C e^{i\omega t}.
+\]
+
+Der reale physikalische Spannungsverlauf ist der Realteil dieser komplexen
+Größe. Der Vorteil dieser Schreibweise liegt darin, dass die Ableitung nach der
+Zeit besonders einfach wird:
+
+\[
+\frac{d\underline{u}_C(t)}{dt}
+=
+\frac{d}{dt}\left(\hat U_C e^{i\omega t}\right).
+\]
+
+Da $\hat U_C$ konstant ist, folgt:
+
+\[
+\frac{d\underline{u}_C(t)}{dt}
+=
+\hat U_C i\omega e^{i\omega t}.
+\]
+
+Damit erhält man:
+
+\[
+\frac{d\underline{u}_C(t)}{dt}
+=
+i\omega \hat U_C e^{i\omega t}.
+\]
+
+Da
+
+\[
+\underline{u}_C(t)=\hat U_C e^{i\omega t}
+\]
+
+gilt, kann man schreiben:
+
+\[
+\frac{d\underline{u}_C(t)}{dt}
+=
+i\omega \underline{u}_C(t).
+\]
+
+Setzt man dies in die Kondensatorgleichung ein, so erhält man:
+
+\[
+\underline{i}_C(t)
+=
+C\frac{d\underline{u}_C(t)}{dt}.
+\]
+
+Also:
+
+\[
+\underline{i}_C(t)
+=
+C\,i\omega \underline{u}_C(t).
+\]
+
+Damit folgt:
+
+\[
+\underline{i}_C(t)
+=
+i\omega C\,\underline{u}_C(t).
+\]
+
+Die Impedanz ist allgemein definiert als das Verhältnis von komplexer Spannung
+zu komplexem Strom:
+
+\[
+Z_C=\frac{\underline{u}_C(t)}{\underline{i}_C(t)}.
+\]
+
+Aus
+
+\[
+\underline{i}_C(t)
+=
+i\omega C\,\underline{u}_C(t)
+\]
+
+folgt daher:
+
+\[
+Z_C
+=
+\frac{\underline{u}_C(t)}
+{i\omega C\,\underline{u}_C(t)}.
+\]
+
+Die Spannung $\underline{u}_C(t)$ kürzt sich heraus:
+
+\[
+Z_C
+=
+\frac{1}{i\omega C}.
+\]
+
+Damit lautet die Impedanz des Kondensators:
+
+\[
+\boxed{
+	Z_C=\frac{1}{i\omega C}
+}
+\]
+
+Da für die imaginäre Einheit gilt:
+
+\[
+\frac{1}{i}=-i,
+\]
+
+kann man die Impedanz auch schreiben als:
+
+\[
+Z_C
+=
+-i\frac{1}{\omega C}.
+\]
+
+Also:
+
+\[
+\boxed{
+	Z_C=-\,i\,\frac{1}{\omega C}
+}
+\]
+
+In der Elektrotechnik verwendet man häufig den Buchstaben $j$ statt $i$, weil
+$i$ bereits für den elektrischen Strom verwendet wird. Dann schreibt man:
+
+\[
+\boxed{
+	Z_C=\frac{1}{j\omega C}
+	=
+	-j\frac{1}{\omega C}
+}
+\]
+
+\subsubsection{Betrag und Phase}
+\label{subsubsec:betrag-und-phase-kondensatorimpedanz}
+
+Die Impedanz des Kondensators ist rein imaginär. Ihr Betrag ist:
+
+\[
+\left|Z_C\right|
+=
+\left|-i\frac{1}{\omega C}\right|.
+\]
+
+Da der Betrag von $i$ gleich $1$ ist, folgt:
+
+\[
+\boxed{
+	\left|Z_C\right|=\frac{1}{\omega C}
+}
+\]
+
+Der Betrag der Kondensatorimpedanz wird also mit steigender Frequenz kleiner.
+Für kleine Frequenzen wirkt der Kondensator wie ein großer Widerstand, für hohe
+Frequenzen wie ein kleiner Widerstand.
+
+Die Phase von
+
+\[
+Z_C=-i\frac{1}{\omega C}
+\]
+
+beträgt
+
+\[
+\boxed{
+	\varphi_C=-90^\circ
+}
+\]
+
+bzw.
+
+\[
+\boxed{
+	\varphi_C=-\frac{\pi}{2}
+}
+\]
+
+Das bedeutet: Die Spannung am Kondensator hinkt dem Strom um $90^\circ$ nach.
+Umgekehrt formuliert:
+
+\[
+\boxed{
+	\text{Der Strom eilt der Kondensatorspannung um }90^\circ\text{ voraus.}
+}
+\]
+
+\begin{DidacticBox}[Warum taucht $i\omega$ auf?]
+	\label{box:warum-i-omega-auftaucht}
+	
+	Der zentrale mathematische Schritt ist die Ableitung der komplexen
+	Exponentialfunktion:
+	
+	\[
+	\frac{d}{dt}e^{i\omega t}
+	=
+	i\omega e^{i\omega t}.
+	\]
+	
+	Eine zeitliche Ableitung entspricht in der komplexen Wechselstromrechnung also
+	einer Multiplikation mit $i\omega$. Genau deshalb treten bei Kondensatoren und
+	Spulen komplexe Impedanzen auf.
+	
+	Für den Kondensator führt diese Ableitung zu
+	
+	\[
+	Z_C=\frac{1}{i\omega C}.
+	\]
+	
+	Der Faktor $\frac{1}{i}=-i$ beschreibt dabei die Phasenverschiebung von
+	$-90^\circ$ zwischen Kondensatorspannung und Strom.
+\end{DidacticBox}
