@@ -7,12 +7,52 @@ Die Spannung am Widerstand wird mit $U_R(t)$ bezeichnet, die Spannung am
 Kondensator mit $U_C(t)$. Da Widerstand und Kondensator in Reihe geschaltet
 sind, fließt durch beide Bauelemente derselbe Strom $i(t)$.
 \FloatBarrier
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.92\textwidth]{bilder/rc-schaltung.png}
-	\caption{RC-Reihenschaltung mit Eingangsspannung $U_0$, Widerstandsspannung $U_R(t)$, Kondensatorspannung $U_C(t)$ und Strom $i(t)$.}
-	\label{fig:rc-schaltung}
-\end{figure}
+
+
+\begin{center}
+	\begin{tikzpicture}[scale=1.0, european resistors]
+		
+		% Coordinates
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (3.5,0);
+		\coordinate (C) at (5,0);
+		\coordinate (D) at (5,-2);
+		\coordinate (E) at (0,-2);
+		
+		% Source
+	
+		% Gleichspannungsquelle
+	
+	\draw (A) to[battery1] (E);
+		\draw[<-,blue] (-0.6,-0.4) -- (-0.6,-1.4);
+	\node[above,blue] at (-1,-1.25) {$U_0(t)$};
+		% Resistor
+		\draw (A) -- (2.2,0);
+		\draw (2.2,0) to[R, l={$R$}] (3.5,0);
+		
+		% Capacitor
+		\draw (3.5,0) -- (C);
+		\draw (C) to[C, l={$C$}] (D);
+	     \node[right] at (4.5,-0.6) {$+$};
+		% Ground return
+		\draw (D) -- (E);
+		
+		% Capacitor voltage arrow
+		\draw[->,green] (5.9,-0.4) -- (5.9,-1.4);
+		\node[right,green] at (6.0,-1.0) {$U_C(t)$};
+		
+		% Rissistant arrow
+		\draw[->,blue] (2.2,0.8) -- (3.2,0.8);
+		\node[above,blue] at (2.8,0.8) {$U_R(t))$};
+			% Current arrow
+		\draw[->,red] (0.2,0.2) -- (1.2,0.2);
+		\node[above,red] at (0.8,0.3) {$i(t))$};
+		
+	\end{tikzpicture}
+\end{center}
+
+
+
 
 Nach der Maschenregel gilt:
 
